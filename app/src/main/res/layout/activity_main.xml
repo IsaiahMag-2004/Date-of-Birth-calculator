@@ -27,7 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="AGE"
-        android:textColor="#000814"
+        android:textColor="@color/Item_font"
+        android:background="@color/Item_bg"
         android:textSize="25sp"
         android:textStyle="bold" />
 </LinearLayout>
