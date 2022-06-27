@@ -11,4 +11,5 @@
     <color name="BgColor">#FFD60A</color>
     <color name="Item_bg">#FF001D3D</color>
     <color name="Item_font">#FFFFC300</color>
+    <color name="Button_BG">#FF003566</color>
 </resources>
