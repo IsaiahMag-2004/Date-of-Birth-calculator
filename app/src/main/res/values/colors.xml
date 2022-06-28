@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Rich_Black">#FF000814</color>
     <color name="BgColor">#FFD60A</color>
+    <color name="Item_bg">#FF001D3D</color>
+    <color name="Item_font">#FFFFC300</color>
+    <color name="Button_BG">#FF003566</color>
+    <color name="Light_Grey">#b7b7a4</color>
+    <color name="Kobe">#8F250C</color>
 </resources>
