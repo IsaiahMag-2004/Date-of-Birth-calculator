@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         //When using data for months you have to remember that in programming the start of indexes is 0, while the first month of the year - january - is 1
         //Remember you should use (?) to set nullabel when there is a chance there will be no data
         dpd = DatePickerDialog(this,
-            DatePickerDialog.OnDateSetListener{view, selectedYear, selectedMonth, selectedDayOfMonth ->
+            DatePickerDialog.OnDateSetListener{_, selectedYear, selectedMonth, selectedDayOfMonth ->
                 val selectedDate = "$selectedMonth/$selectedDayOfMonth/$selectedYear"
                 userSelectedDate?.text = selectedDate
                 val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
