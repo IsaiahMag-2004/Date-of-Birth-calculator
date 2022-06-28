@@ -32,8 +32,9 @@ class MainActivity : AppCompatActivity() {
         //With the .OnDateSetListener stuff we are basicly using a lamda expression to get 4 parameters all filled with the data the user gives us but we will explain more in future
         //Anything you put after the -> will be run
         //The Toast will only run when you click ok after choosing a date
+        //When using data for months you have to remember that in programming the start of indexes is 0, while the first month of the year - january - is 1
         DatePickerDialog(this,
-            DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth -> Toast.makeText(this, "Date Picker works", Toast.LENGTH_LONG).show()},
+            DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth -> Toast.makeText(this, "The Year Was $year, Month was ${month + 1}, Day was, $dayOfMonth", Toast.LENGTH_LONG).show()},
             year,
             month,
             day
