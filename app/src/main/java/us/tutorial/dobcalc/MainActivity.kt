@@ -46,13 +46,16 @@ class MainActivity : AppCompatActivity() {
                 userSelectedDate?.text = selectedDate
                 val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
                 val theDate = sdf.parse(selectedDate)
+                theDate?.let {
+                    val selectedDateInMinutes = theDate.time / 60000
+                    val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
+                    currentDate?.let {
+                        val currentDateInMinutes = currentDate.time / 60000
+                        val diffrenceInMinutes = currentDateInMinutes - selectedDateInMinutes
+                        dateInMin?.text = diffrenceInMinutes.toString()
+                    }
+                }
 
-                val selectedDateInMinutes = theDate.time / 60000
-                val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
-                val currentDateInMinutes = currentDate.time / 60000
-                val diffrenceInMinutes = currentDateInMinutes - selectedDateInMinutes
-
-                dateInMin?.text = diffrenceInMinutes.toString()
             },
             year,
             month,
