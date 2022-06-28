@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.TextView
 import android.widget.Toast
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    private var userSelectedDate : TextView? = null //Created here bc if not the date picker function won't see it | make private so that you cant see this while workig with the UI bc it will crash the program
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         val buttonDatePicker : Button = findViewById(R.id.date_pick_button) //Gives us access to the button in the UI
 
         buttonDatePicker.setOnClickListener {
+            userSelectedDate = findViewById(R.id.selected_date)
             clickDatePicker()
         }
 
@@ -33,8 +37,12 @@ class MainActivity : AppCompatActivity() {
         //Anything you put after the -> will be run
         //The Toast will only run when you click ok after choosing a date
         //When using data for months you have to remember that in programming the start of indexes is 0, while the first month of the year - january - is 1
+        //Remember you should use (?) to set nullabel when there is a chance there will be no data
         DatePickerDialog(this,
-            DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth -> Toast.makeText(this, "The Year Was $year, Month was ${month + 1}, Day was, $dayOfMonth", Toast.LENGTH_LONG).show()},
+            DatePickerDialog.OnDateSetListener{view, selectedYear, selectedMonth, selectedDayOfMonth ->
+                val selectedDate = "$selectedMonth/$selectedDayOfMonth/$selectedYear"
+                userSelectedDate?.text = selectedDate
+                                              },
             year,
             month,
             day
