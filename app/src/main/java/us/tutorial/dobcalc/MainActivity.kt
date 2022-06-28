@@ -34,13 +34,13 @@ class MainActivity : AppCompatActivity() {
         val year = myCalander.get(Calendar.YEAR)
         val month = myCalander.get(Calendar.MONTH)
         val day = myCalander.get(Calendar.DAY_OF_MONTH)
-
+        lateinit var dpd: Any
         //With the .OnDateSetListener stuff we are basicly using a lamda expression to get 4 parameters all filled with the data the user gives us but we will explain more in future
         //Anything y ou put after the -> will be run
         //The Toast will only run when you click ok after choosing a date
         //When using data for months you have to remember that in programming the start of indexes is 0, while the first month of the year - january - is 1
         //Remember you should use (?) to set nullabel when there is a chance there will be no data
-        DatePickerDialog(this,
+        dpd = DatePickerDialog(this,
             DatePickerDialog.OnDateSetListener{view, selectedYear, selectedMonth, selectedDayOfMonth ->
                 val selectedDate = "$selectedMonth/$selectedDayOfMonth/$selectedYear"
                 userSelectedDate?.text = selectedDate
@@ -53,10 +53,12 @@ class MainActivity : AppCompatActivity() {
                 val diffrenceInMinutes = currentDateInMinutes - selectedDateInMinutes
 
                 dateInMin?.text = diffrenceInMinutes.toString()
-                                              },
+            },
             year,
             month,
             day
-        ).show() //The class used to get dates in our app
+        ) //The class used to get dates in our app
+        dpd.datePicker.maxDate = System.currentTimeMillis() - 86400000
+        dpd.show()
     }
 }
